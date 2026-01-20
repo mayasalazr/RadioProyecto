@@ -1,5 +1,7 @@
 package model;
 
+import jdk.jfr.Frequency;
+
 public class RadioCar implements Radio {
     
     private boolean on;
@@ -74,8 +76,8 @@ public class RadioCar implements Radio {
 
 
         }
-
-        @Override
+    
+    @Override
     public String levelDownFrequency(){
         if (mode.equals("FM")){
             frequency -= 0.2f;
@@ -93,9 +95,44 @@ public class RadioCar implements Radio {
 
         }
 
+    @Override
+    public void saveFrequency(int button, float frequency, String mode) {
+        if (button < 1 || button > 12) {
+            return;
+        }
+
+        int index = button -1;
+
+        if (mode.equals("FM")){
+            fmButtons[index] = frequency;
+        } else if (mode.equals("AM")){
+            amButtons[index] = frequency;
+        }
+
+    }
+
+    @Override
+    public float selectFrecuency(int button) {
+        if (button < 1 || button > 12){
+            return frequency;
+
+        }
+
+        int index = button -1;
+
+        if (mode.equals("FM")){
+            frequency = fmButtons[index];
+
+        } else if (mode.equals("AM")){
+            frequency = amButtons[index]
+        }
+
+        return frequency;
+    }
+
 
     }
 
 
 
-}
+
