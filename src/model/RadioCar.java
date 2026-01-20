@@ -70,7 +70,8 @@ public class RadioCar implements Radio {
                 }
             }
 
-            return mode + " "+ frequency;
+            return mode + " " + String.format("%.1f", frequency);
+
 
 
         }
@@ -88,7 +89,8 @@ public class RadioCar implements Radio {
                 }
             }
 
-            return mode + " "+ frequency;
+            return mode + " " + String.format("%.1f", frequency);
+
 
 
         }
