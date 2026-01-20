@@ -32,7 +32,69 @@ public class RadioCar implements Radio {
         return on;
     }
 
+    @Override
+    public String getMode(){
+        return mode;
+    }
 
+    @Override
+    public float getFrequency(){
+        return frequency;
+    }
+
+    @Override
+    public void changeMode(String mode){
+        if (mode.equals("AM") || mode.equals("FM")) {
+            this.mode = mode;
+
+            if (mode.equals("FM")){
+                frequency = 87.9f;
+
+            } else {
+                frequency =530;
+            }
+        } 
+
+    }
+
+    @Override
+    public String levelUpFrequency(){
+        if (mode.equals("FM")){
+            frequency += 0.2f;
+            if (frequency > 107.9f){
+                frequency = 87.9f;
+            } } else if (mode.equals("AM")){
+                frequency += 10;
+                if (frequency > 1610){
+                    frequency =530;
+                }
+            }
+
+            return mode + " "+ frequency;
+
+
+        }
+
+        @Override
+    public String levelDownFrequency(){
+        if (mode.equals("FM")){
+            frequency -= 0.2f;
+            if (frequency > 107.9f){
+                frequency = 87.9f;
+            } } else if (mode.equals("AM")){
+                frequency -= 10;
+                if (frequency > 1610){
+                    frequency =530;
+                }
+            }
+
+            return mode + " "+ frequency;
+
+
+        }
+
+
+    }
 
 
 
