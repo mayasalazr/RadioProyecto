@@ -1,7 +1,5 @@
 package model;
 
-import jdk.jfr.Frequency;
-
 public class RadioCar implements Radio {
     
     private boolean on;
@@ -124,7 +122,7 @@ public class RadioCar implements Radio {
             frequency = fmButtons[index];
 
         } else if (mode.equals("AM")){
-            frequency = amButtons[index]
+            frequency = amButtons[index];
         }
 
         return frequency;
